@@ -1,0 +1,520 @@
+import processing.core.PApplet;
+
+public class projek extends PApplet {
+    //variabel
+    int k = (int) random(200, 500), k1 = k - (int) random(200, 500);
+    int b = (int) random(100, 400), b1 = b - (int) random(100, 400);
+    float duration;
+    float lastTime;
+    float deltaTime;
+    float gradient;
+    boolean white;
+
+    public static void main(String[] args) {
+        projek mySketch = new projek();
+        PApplet.runSketch(new String[]{"Hello Processing"}, mySketch);
+    }
+
+    @Override
+    //ukuran layar
+    public void settings() {
+        size(1366, 768);
+        fullScreen();
+    }
+    //method bintang jatuh
+    public void star() {
+        strokeWeight(2);
+        stroke(255, 255, 255);
+        if (b >= 500) {
+            k = (int) random(-1000, 100);
+            b = (int) random(-500, -100);
+        }
+        if (b1 >= 400) {
+            k1 = (int) random(-300, 100);
+            b1 = (int) random(-500, -100);
+        }
+        line(k + 200, b - 15, k + 150, b - 65);
+        line(k1 + 250, b1 - 95, k1 + 150, b1 - 195);
+        k += 5;
+        k1 += 5;
+        b += 5;
+        b1 += 5;
+    }
+    //method background dengan warna yang bergradasi
+    public void gradientbg() {
+        noStroke();
+        for (int i = 0; i <= 450; i += 2) {
+            gradient = map(i, 0, 450, 30, 150);
+            fill(0, 0, gradient, 200);
+            rect(0, i, 1366, 5);
+        }
+
+        for (int i = 450; i <= 1366; i += 2) {
+            gradient = map(i, 450, 1366, 150, 30);
+            fill(0, 0, gradient, 200);
+            rect(0, i, 1366, 5);
+        }
+    }
+    //method untuk menampilkan semua objek
+    public void draw() {
+        //warna background
+        background(0, 0, 102);
+        gradientbg();
+        //untuk durasi objek
+        deltaTime = millis() - lastTime;
+        lastTime = millis();
+        duration += deltaTime;
+        //bintang
+        fill(255, 255, 255);
+        ellipse(1000, 100, 5, 5);
+        fill(255, 255, 255);
+        ellipse(900, 200, 5, 5);
+        fill(255, 255, 255);
+        ellipse(500, 150, 5, 5);
+        fill(255, 255, 255);
+        ellipse(800, 100, 5, 5);
+        fill(255, 255, 255);
+        ellipse(750, 300, 5, 5);
+        fill(255, 255, 255);
+        ellipse(800, 350, 5, 5);
+        fill(255, 255, 255);
+        ellipse(600, 300, 5, 5);
+        fill(255, 255, 255);
+        ellipse(850, 250, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1500, 300, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1200, 120, 5, 5);
+        fill(255, 255, 255);
+        ellipse(950, 320, 5, 5);
+        fill(255, 255, 255);
+        ellipse(350, 140, 5, 5);
+        fill(255, 255, 255);
+        ellipse(420, 130, 5, 5);
+        fill(255, 255, 255);
+        ellipse(520, 220, 5, 5);
+        fill(255, 255, 255);
+        ellipse(100, 200, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1300, 180, 5, 5);
+        fill(255, 255, 255);
+        ellipse(650, 330, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1400, 100, 5, 5);
+        fill(255, 255, 255);
+        ellipse(2000, 140, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1700, 240, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1300, 170, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1900, 400, 5, 5);
+        fill(255, 255, 255);
+        ellipse(3600, 140, 5, 5);
+        fill(255, 255, 255);
+        ellipse(2000, 350, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1700, 450, 5, 5);
+        fill(255, 255, 255);
+        ellipse(472, 350, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1088, 250, 5, 5);
+        fill(255, 255, 255);
+        ellipse(2200, 250, 5, 5);
+        fill(255, 255, 255);
+        ellipse(80, 100, 5, 5);
+        fill(255, 255, 255);
+        ellipse(50, 170, 5, 5);
+        fill(255, 255, 255);
+        ellipse(90, 150, 5, 5);
+        fill(255, 255, 255);
+        ellipse(100, 30, 5, 5);
+        fill(255, 255, 255);
+        ellipse(150, 70, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1250, 120, 5, 5);
+        fill(255, 255, 255);
+        ellipse(380, 160, 5, 5);
+        fill(255, 255, 255);
+        ellipse(100, 80, 5, 5);
+        fill(255, 255, 255);
+        ellipse(1100, 100, 5, 5);
+        fill(255, 255, 255);
+        ellipse(600, 200, 5, 5);
+        fill(255, 255, 255);
+        ellipse(230, 140, 5, 5);
+        fill(255, 255, 255);
+        ellipse(750, 140, 5, 5);
+        fill(255, 255, 255);
+        ellipse(145, 160, 5, 5);
+        //bulan
+        noStroke();
+        fill(224, 224, 224);
+        ellipse(1100, 100, 100, 100);
+        //bintang jatuh
+        star();
+        noStroke();
+        //gedung 2
+        fill(0, 0, 0);
+        rect(260, 428, 200, 330);
+        //atap gedung 2
+        fill(0, 0, 0);
+        rect(280, 398, 160, 30);
+        fill(0, 0, 0);
+        rect(300, 378, 120, 30);
+        fill(0, 0, 0);
+        rect(320, 348, 80, 30);
+        fill(0, 0, 0);
+        rect(340, 328, 40, 50);
+        //jendela gedung 2
+        fill(255, 255, 255);
+        rect(290, 458, 20, 20);
+        fill(255, 255, 255);
+        rect(350, 458, 20, 20);
+        fill(255, 255, 255);
+        rect(410, 458, 20, 20);
+
+        fill(255, 255, 255);
+        rect(410, 518, 20, 20);
+        fill(255, 255, 255);
+        rect(290, 518, 20, 20);
+        fill(255, 255, 255);
+        rect(350, 518, 20, 20);
+
+        fill(255, 255, 255);
+        rect(410, 578, 20, 20);
+        fill(255, 255, 255);
+        rect(290, 578, 20, 20);
+        fill(255, 255, 255);
+        rect(350, 578, 20, 20);
+
+        fill(255, 255, 255);
+        rect(410, 638, 20, 20);
+        fill(255, 255, 255);
+        rect(290, 638, 20, 20);
+        fill(255, 255, 255);
+        rect(350, 638, 20, 20);
+        //gedung 1
+        fill(0, 0, 0);
+        rect(30, 298, 201, 470);
+        //atap gedung 1
+        fill(0, 0, 0);
+        triangle(30, 298, 130, 258, 231, 298);
+        //jendela gedung 1
+        fill(255, 255, 255);
+        rect(60, 338, 20, 20);
+        fill(255, 255, 255);
+        rect(120, 338, 20, 20);
+        fill(255, 255, 255);
+        rect(180, 338, 20, 20);
+
+        fill(255, 255, 255);
+        rect(60, 398, 20, 20);
+        fill(255, 255, 255);
+        rect(120, 398, 20, 20);
+        fill(255, 255, 255);
+        rect(180, 398, 20, 20);
+
+        fill(255, 255, 255);
+        rect(60, 458, 20, 20);
+        fill(255, 255, 255);
+        rect(120, 458, 20, 20);
+        fill(255, 255, 255);
+        rect(180, 458, 20, 20);
+
+        fill(255, 255, 255);
+        rect(180, 518, 20, 20);
+        fill(255, 255, 255);
+        rect(60, 518, 20, 20);
+        fill(255, 255, 255);
+        rect(120, 518, 20, 20);
+
+        fill(255, 255, 255);
+        rect(180, 578, 20, 20);
+        fill(255, 255, 255);
+        rect(60, 578, 20, 20);
+        fill(255, 255, 255);
+        rect(120, 578, 20, 20);
+
+        fill(255, 255, 255);
+        rect(180, 638, 20, 20);
+        fill(255, 255, 255);
+        rect(60, 638, 20, 20);
+        fill(255, 255, 255);
+        rect(120, 638, 20, 20);
+
+        //alas bianglala
+        fill(0, 0, 0);
+        rect(795, 698, 85, 70);
+        stroke(0);
+        strokeWeight(5);
+        fill(0, 0, 0);
+        line(800, 708, 837, 590);
+        fill(0, 0, 0);
+        line(875, 708, 837, 590);
+        fill(0, 0, 102);
+        ellipse(837, 588, 170, 170);
+        //kerangka bianglala
+        stroke(0);
+        strokeWeight(5);
+        fill(0, 0, 0);
+        line(762, 520, 887, 640);
+        fill(0, 0, 0);
+        line(777, 645, 903, 530);
+        fill(0, 0, 0);
+        line(837, 505, 837, 675);
+        fill(0, 0, 0);
+        line(752, 590, 923, 590);
+        //bianglala yang berputar
+        noStroke();
+        if (duration >= 600) {
+            white = !white;
+            duration = 0;
+        }
+        if (white) {
+            fill(255, 255, 102);
+            rect(742, 580, 20, 20);
+        } else {
+            fill(255, 255, 255);
+            rect(742, 580, 20, 20);
+        }
+
+        if (white) {
+            fill(255, 255, 255);
+            rect(762, 520, 20, 20);
+        } else {
+            fill(255, 255, 102);
+            rect(762, 520, 20, 20);
+        }
+        if (white) {
+            fill(255, 255, 102);
+            rect(827, 495, 20, 20);
+        } else {
+            fill(255, 255, 255);
+            rect(827, 495, 20, 20);
+        }
+        if (white) {
+            fill(255, 255, 225);
+            rect(893, 520, 20, 20);
+        } else {
+            fill(255, 255, 102);
+            rect(893, 520, 20, 20);
+        }
+        if (white) {
+            fill(255, 255, 102);
+            rect(913, 580, 20, 20);
+        } else {
+            fill(255, 255, 255);
+            rect(913, 580, 20, 20);
+        }
+        if (white) {
+            fill(255, 255, 225);
+            rect(887, 640, 20, 20);
+        } else {
+            fill(255, 255, 102);
+            rect(887, 640, 20, 20);
+        }
+        if (white) {
+            fill(255, 255, 102);
+            rect(827, 665, 20, 20);
+        } else {
+            fill(255, 255, 255);
+            rect(827, 665, 20, 20);
+        }
+        if (white) {
+            fill(255, 255, 225);
+            rect(767, 635, 20, 20);
+        } else {
+            fill(255, 255, 102);
+            rect(767, 635, 20, 20);
+        }
+        //kembang api kanan
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1068, 430, 1048, 450);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1028, 470, 1008, 490);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1008, 430, 1028, 450);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1048, 470, 1068, 490);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1038, 410, 1038, 430);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1038, 490, 1038, 510);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1088, 460, 1068, 460);
+        } else {
+            noFill();
+        }
+        if (white) {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(988, 460, 1008, 460);
+        } else {
+            noFill();
+        }
+        //kembang api kiri
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1068-370, 430+30, 1048-370, 450+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1028-370, 470+30, 1008-370, 490+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1008-370, 430+30, 1028-370, 450+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1048-370, 470+30, 1068-370, 490+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1038-370, 410+30, 1038-370, 430+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1038-370, 490+30, 1038-370, 510+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(1088-370, 460+30, 1068-370, 460+30);
+        }
+        if (white) {
+            noFill();
+        } else {
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+            line(988-370, 460+30, 1008-370, 460+30);
+        }
+        //carrousel yang berputar
+        strokeWeight(5);
+        if (white) {
+            stroke(102, 178, 255);
+            line(580, 640, 580, 708);
+        } else {
+            stroke(255, 255, 255);
+            line(580, 640, 580, 708);
+        }
+        if (white) {
+            stroke(102, 178, 255);
+            line(700, 640, 700, 708);
+        } else {
+            stroke(255, 255, 255);
+            line(700, 640, 700, 708);
+        }
+        if (white) {
+            stroke(255, 255, 255);
+            line(640, 640, 640, 708);
+        } else {
+            stroke(102, 178, 255);
+            line(640, 640, 640, 708);
+        }
+        //alas carrousel
+        noStroke();
+        fill(0, 0, 0);
+        rect(565, 708, 150, 15);
+        fill(160, 160, 160);
+        rect(570, 703, 140, 5);
+        //atap carrousel
+        fill(0, 0, 0);
+        triangle(570, 640, 640, 600, 710, 640);
+        //tenda circus
+        fill(0, 0, 0);
+        rect(972, 690, 100, 50);
+        fill(255, 255, 102);
+        rect(1072, 690, 35, 50);
+        fill(0, 0, 0);
+        rect(1100, 690, 105, 50);
+        fill(0, 0, 0);
+        rect(1000, 670, 175, 25);
+        fill(0, 0, 0);
+        triangle(1020, 670, 1080, 640, 1150, 670);
+        //bendera tenda circus
+        fill(0, 0, 0);
+        triangle(1080, 640, 1080, 620, 1098, 630);
+        //lampu kelap-kelip di tenda circus
+        if (white) {
+            fill(255, 102, 102);
+            ellipse(974, 690, 10, 10);
+        } else {
+            fill(255, 255, 255);
+            ellipse(974, 690, 10, 10);
+        }
+        if (white) {
+            fill(255, 255, 255);
+            ellipse(1002, 690, 10, 10);
+        } else {
+            fill(255, 102, 102);
+            ellipse(1002, 690, 10, 10);
+        }
+        if (white) {
+            fill(255, 102, 102);
+            ellipse(1032, 690, 10, 10);
+        } else {
+            fill(255, 255, 255);
+            ellipse(1032, 690, 10, 10);
+        }
+        if (white) {
+            fill(255, 255, 255);
+            ellipse(1142, 690, 10, 10);
+        } else {
+            fill(255, 102, 102);
+            ellipse(1142, 690, 10, 10);
+        }
+        if (white) {
+            fill(255, 102, 102);
+            ellipse(1172, 690, 10, 10);
+        } else {
+            fill(255, 255, 255);
+            ellipse(1172, 690, 10, 10);
+        }
+        if (white) {
+            fill(255, 255, 255);
+            ellipse(1202, 690, 10, 10);
+        } else {
+            fill(255, 102, 102);
+            ellipse(1202, 690, 10, 10);
+
+        }
+    }
+}
